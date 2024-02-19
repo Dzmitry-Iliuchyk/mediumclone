@@ -1,0 +1,39 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-error-message
+  *ngIf="error$ | async"
+  [errorMessage]="error$ | async"
+></mc-error-message>
+
+<div *ngIf="feedData$ | async">
+  <ng-template ngFor let-article [ngForOf]="(feedData$ | async).articles"
+    ><div class="article-preview">
+      <div class="article-meta ">
+        <a [routerLink]="['/profiles', article.author.username]">
+          <img [src]="article.author.image" alt="Аватар автора"
+        /></a>
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]">
+            {{ article.author.username }}</a
+          >
+          <span class="date">{{
+            article.createdAt | date : "MMM dd, yyyy 'at' HH:mm "
+          }}</span>
+        </div>
+        <div class="pull-xs-right">{{ 'Add to favorites' | uppercase }}</div>
+
+        <a [routerLink]="['/articles', article.slug]" class="preview-link">
+          <h1>{{ article.title }}</h1>
+          <p>{{ article.description }}</p>
+          <mc-tag-list [tags]="article.tagList" ></mc-tag-list>
+        </a>
+      </div>
+      
+    </div>
+  </ng-template>
+  <mc-pagination
+    [total]="(feedData$ | async).articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></mc-pagination>
+</div>
