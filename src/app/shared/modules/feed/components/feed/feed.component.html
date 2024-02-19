@@ -7,7 +7,7 @@
 <div *ngIf="feedData$ | async">
   <ng-template ngFor let-article [ngForOf]="(feedData$ | async).articles"
     ><div class="article-preview">
-      <div class="article-meta ">
+      <div class="article-meta">
         <a [routerLink]="['/profiles', article.author.username]">
           <img [src]="article.author.image" alt="Аватар автора"
         /></a>
@@ -24,10 +24,13 @@
         <a [routerLink]="['/articles', article.slug]" class="preview-link">
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
-          <mc-tag-list [tags]="article.tagList" ></mc-tag-list>
         </a>
+        <mc-tag-list
+          class="pull-xs-right "
+          [tags]="article.tagList"
+          [tag-outline]="true"
+        ></mc-tag-list>
       </div>
-      
     </div>
   </ng-template>
   <mc-pagination

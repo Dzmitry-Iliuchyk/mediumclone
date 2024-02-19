@@ -1,4 +1,6 @@
-<div class="sidebar">
+<mc-error-message *ngIf="error$|async" [errorMessage]="error$|async" ></mc-error-message>
+<mc-loading *ngIf="isLoading$|async"></mc-loading>
+<div class="sidebar" *ngIf="tags$|async">
     <p>Popular Tags</p>
-    <mc-tag-list [tags]="tags"></mc-tag-list>
+    <mc-tag-list [tags]="(tags$|async).tags" [ngClass]=""></mc-tag-list>
 </div>

@@ -24,7 +24,7 @@ export class FeedEffect {
               
             return getFeedSuccessAction({ feed });
           }),
-          catchError((errorResponse: HttpErrorResponse) => {
+          catchError(() => {
             return of(getFeedFailureAction());
           })
         );

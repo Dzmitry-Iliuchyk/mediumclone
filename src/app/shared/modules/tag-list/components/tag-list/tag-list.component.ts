@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TagListComponent {
   @Input('tags') tagsProps: string[];
+  @Input('tag-outline') tagOutlineFlag: boolean = false;
 }
