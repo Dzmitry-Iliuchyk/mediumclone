@@ -12,6 +12,8 @@ import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
+import { BodyComponent } from 'src/app/body/components/body/body.component';
+import { BodyModule } from './body/body.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,8 +33,8 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
     HttpClientModule,
     EffectsModule.forRoot([]),
     TopBarModule,
-    GlobalFeedModule,
     StoreRouterConnectingModule.forRoot(),
+    BodyModule
   ],
   exports: [],
   providers: [
