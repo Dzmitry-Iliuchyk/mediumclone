@@ -18,10 +18,7 @@ export class FeedEffect {
       switchMap(({ url }) => {
         return this.feedService.getFeed(url).pipe(
           map((feed: IFeedResponse) => {
-            feed.articles.map(
-              (el) => (el.tagList = ['test1', 'test2'])
-            );
-              
+        
             return getFeedSuccessAction({ feed });
           }),
           catchError(() => {
