@@ -26,5 +26,8 @@ const routes: Routes = [
     PupularTagsModule,
     FeedTogglerModule
   ],
+  exports:[
+    GlobalFeedComponent
+  ]
 })
 export class GlobalFeedModule {}
