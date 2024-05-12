@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable, Subscription, using } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { getFeedAction } from 'src/app/shared/modules/feed/store/actions/getFeed.action';
 import { IFeedResponse } from 'src/app/shared/modules/feed/types/feedResponse.interface';
 import {
