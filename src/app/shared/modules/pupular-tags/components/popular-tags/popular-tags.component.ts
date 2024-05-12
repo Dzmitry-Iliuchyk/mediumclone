@@ -24,6 +24,5 @@ export class PopularTagsComponent implements OnInit {
     this.tags$ = this.store.pipe(select(TagSelector));
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
-    console.log(this.tags$.subscribe((e) => console.log(e)));
   }
 }

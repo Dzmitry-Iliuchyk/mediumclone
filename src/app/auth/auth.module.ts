@@ -13,6 +13,7 @@ import { PersistenceService } from 'src/app/shared/services/persistence.service'
 import { LoginEffect } from './store/effects/login.effects';
 import { LoginComponent } from './login/login.component';
 import { GetCurrentUserEffect } from './store/effects/getCurrenrUser.effects';
+import { RedusersNames } from 'src/helpers/redusersNames.enum';
 
 const route: Routes = [
   {
@@ -32,10 +33,13 @@ const route: Routes = [
     CommonModule,
     RouterModule.forChild(route),
     ReactiveFormsModule,
-    StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
+    StoreModule.forFeature(RedusersNames.auth, authReducer),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+    ]),
     BackendErrorsModule,
-    
   ],
 })
 export class AuthModule {}

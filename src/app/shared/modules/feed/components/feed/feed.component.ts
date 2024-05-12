@@ -1,6 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable, Subscription, using } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { getFeedAction } from 'src/app/shared/modules/feed/store/actions/getFeed.action';
 import { IFeedResponse } from 'src/app/shared/modules/feed/types/feedResponse.interface';
 import {
@@ -17,7 +24,7 @@ import queryString from 'query-string';
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.scss',
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   @Input('apiUrl') apiUrlProps: string;
 
   isLoading$: Observable<boolean>;
@@ -37,6 +44,16 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.queryParamsSubscribtion.unsubscribe();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    
+    const isChanged = changes['apiUrlProps'].currentValue !== changes['apiUrlProps'].previousValue;
+    const isFirstChange = changes['apiUrlProps'].isFirstChange();
+        if (isChanged&&!isFirstChange) {
+          this.fetchFeed();
+        }
+        console.log('isFirstChange', isFirstChange);
+        console.log('isChanged',isChanged)
+  }
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
@@ -49,6 +66,8 @@ export class FeedComponent implements OnInit, OnDestroy {
       offset,
       ...parsedUrl.query,
     });
+    console.log('stringifiedParams', stringifiedParams);
+
     const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`;
     this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
   }
@@ -56,7 +75,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   initializeListeners() {
     this.queryParamsSubscribtion = this.route.queryParams.subscribe(
       (params: Params) => {
-        console.log(params);
+        console.log('params',params);
         this.currentPage = Number(params['page'] || '1');
         this.fetchFeed();
       }

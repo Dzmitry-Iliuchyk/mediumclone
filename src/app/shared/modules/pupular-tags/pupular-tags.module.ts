@@ -9,13 +9,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { TagEffect } from './store/effects/get-tags.effect';
 import { ErrorMessageModule } from '../error-message/error-message.module';
 import { LoadingModule } from '../loading-module/loading.module';
+import { RedusersNames } from 'src/helpers/redusersNames.enum';
 
 @NgModule({
   declarations: [PopularTagsComponent],
   imports: [
     CommonModule,
     TagListModule,
-    StoreModule.forFeature('tags', tagReducer),
+    StoreModule.forFeature(RedusersNames.tags, tagReducer),
     EffectsModule.forFeature([TagEffect]),
     ErrorMessageModule,
     LoadingModule,

@@ -11,18 +11,19 @@ import { ErrorMessageModule } from '../error-message/error-message.module';
 import { LoadingModule } from '../loading-module/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { TagListModule } from '../tag-list/tag-list.module';
+import { RedusersNames } from 'src/helpers/redusersNames.enum';
 
 @NgModule({
   declarations: [FeedComponent],
   imports: [
     CommonModule,
     EffectsModule.forFeature([FeedEffect]),
-    StoreModule.forFeature('feed', feedReducer),
+    StoreModule.forFeature(RedusersNames.feed, feedReducer),
     RouterModule,
     ErrorMessageModule,
     LoadingModule,
     PaginationModule,
-    TagListModule
+    TagListModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],

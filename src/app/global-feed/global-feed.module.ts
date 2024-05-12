@@ -8,16 +8,23 @@ import { ErrorMessageModule } from '../shared/modules/error-message/error-messag
 import { PupularTagsModule } from '../shared/modules/pupular-tags/pupular-tags.module';
 import { FeedTogglerModule } from '../shared/modules/feed-toggler/feed-toggler.module';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: GlobalFeedComponent,
+  },
+];
+
 @NgModule({
   declarations: [GlobalFeedComponent],
   imports: [
     CommonModule,
+    RouterModule.forChild(routes),
     FeedModule,
     BannerModule,
     ErrorMessageModule,
     PupularTagsModule,
     FeedTogglerModule
   ],
-  exports:[GlobalFeedComponent]
 })
 export class GlobalFeedModule {}

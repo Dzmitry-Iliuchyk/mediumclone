@@ -12,8 +12,9 @@ import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
-import { BodyComponent } from 'src/app/body/components/body/body.component';
-import { BodyModule } from './body/body.module';
+import { YourFeedModule } from './your-feed/your-feed.module';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,8 +34,11 @@ import { BodyModule } from './body/body.module';
     HttpClientModule,
     EffectsModule.forRoot([]),
     TopBarModule,
+    GlobalFeedModule,
     StoreRouterConnectingModule.forRoot(),
-    BodyModule
+    YourFeedModule,
+    TagFeedModule,
+    ArticleModule,
   ],
   exports: [],
   providers: [
