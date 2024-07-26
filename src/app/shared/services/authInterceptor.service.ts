@@ -16,13 +16,16 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token: string = this.persist.get(LocalStorageEnum.accessToken);
-    req = req.clone({
-      setHeaders: {
-        Authorization: token ? `Token ${token}` : '',
-      },
+    console.log('interceptor:', req.headers);
+    const token: string = this.persist.get(
+      LocalStorageEnum.accessToken.toString()
+    );
+
+    const request = req.clone({
+      headers: req.headers.set('Authorization', `Token ${token}`),
     });
-    console.log(req.headers);
-    return next.handle(req);
+
+    console.log(request);
+    return next.handle(request);
   }
 }

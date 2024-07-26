@@ -6,11 +6,12 @@ import {
   articleDataSelector,
   errorArticleSelector,
   isLoadingArticleSelector,
-} from 'src/app/article/store/selectors';
+} from 'src/app/shared/modules/article/store/selectors';
 import { IArticle } from 'src/app/shared/types/article.interface';
-import { getArticleAction } from 'src/app/article/store/actions/getArticle.action';
+import { getArticleAction } from 'src/app/shared/modules/article/store/actions/getArticle.action';
 import { CurrentUserSelector } from 'src/app/auth/store/selectors';
 import { ICurrentUser } from 'src/app/shared/types/currentUser.interface';
+import { deleteArticleAction } from '../../store/actions/deleteArticle.actions';
 
 @Component({
   selector: 'mc-article',
@@ -61,6 +62,11 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.article = article;
       });
   }
+
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
+  }
+
   fetchData(): void {
     this.store.dispatch(getArticleAction({ slug: this.slug }));
   }

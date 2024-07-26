@@ -23,7 +23,7 @@ export class LoginEffect {
         return this.authService.login(request).pipe(
           map((currentUser: ICurrentUser) => {
             this.persistanceService.set(
-              LocalStorageEnum.accessToken,
+              LocalStorageEnum.accessToken.toString(),
               currentUser.token
             );
             return loginSuccessAction({ currentUser });

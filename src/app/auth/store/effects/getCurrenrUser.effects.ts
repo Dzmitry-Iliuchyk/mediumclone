@@ -18,7 +18,9 @@ export class GetCurrentUserEffect {
     this.action$.pipe(
       ofType(getCurrentUserAction),
       switchMap(() => {
-        if(!this.persistance.get(LocalStorageEnum.accessToken)){
+        console.log('getUserEffect')
+        if(!this.persistance.get(LocalStorageEnum.accessToken.toString())){
+          
             return of(getCurrentUserFailureAction());
         }
         return this.authService.getCurrentUser().pipe(

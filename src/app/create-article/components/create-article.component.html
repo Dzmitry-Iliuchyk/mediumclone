@@ -1,0 +1,7 @@
+<p>create-article works!</p>
+<mc-atricle-form
+  [initialValues]="initialValues"
+  [isSubmitting]="isSubmitting$|async"
+  [errors]="backEndErrors$|async"
+  (articleSubmit)="onSubmit($event)"
+></mc-atricle-form>

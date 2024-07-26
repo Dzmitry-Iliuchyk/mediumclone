@@ -2,7 +2,11 @@ import { createReducer, on } from '@ngrx/store';
 
 import { routerNavigationAction } from '@ngrx/router-store';
 import { IArticleState } from '../types/IArticleState.interface';
-import { getArticleAction, getArticleSuccessAction,getArticleFailureAction } from './actions/getArticle.action';
+import {
+  getArticleAction,
+  getArticleSuccessAction,
+  getArticleFailureAction,
+} from './actions/getArticle.action';
 
 const initialState: IArticleState = {
   isLoading: false,
@@ -14,7 +18,10 @@ export const articleReducer = createReducer(
   initialState,
   on(
     getArticleAction,
-    (state): IArticleState => ({ ...state, isLoading: true })
+    (state): IArticleState => ({
+      ...state,
+       isLoading: true 
+    })
   ),
   on(
     getArticleSuccessAction,

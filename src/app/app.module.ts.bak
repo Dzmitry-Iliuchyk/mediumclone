@@ -12,15 +12,18 @@ import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
+<<<<<<< HEAD
+import { BodyComponent } from 'src/app/body/components/body/body.component';
+import { BodyModule } from './body/body.module';
+=======
 import { YourFeedModule } from './your-feed/your-feed.module';
 import { TagFeedModule } from './tag-feed/tag-feed.module';
-import { ArticleModule } from './shared/modules/article/article.module';
-import { CreateArticleModule } from './create-article/create-article.module';
+import { ArticleModule } from './article/article.module';
+>>>>>>> road-by-Cource
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
@@ -33,22 +36,25 @@ import { CreateArticleModule } from './create-article/create-article.module';
       traceLimit: 75,
       connectInZone: true,
     }),
+    HttpClientModule,
     EffectsModule.forRoot([]),
     TopBarModule,
-    GlobalFeedModule,
     StoreRouterConnectingModule.forRoot(),
+<<<<<<< HEAD
+    BodyModule
+=======
     YourFeedModule,
     TagFeedModule,
-    CreateArticleModule,
     ArticleModule,
+>>>>>>> road-by-Cource
   ],
   exports: [],
   providers: [
     PersistenceService,
     {
-      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
+      provide: HTTP_INTERCEPTORS,
     },
   ],
   bootstrap: [AppComponent],

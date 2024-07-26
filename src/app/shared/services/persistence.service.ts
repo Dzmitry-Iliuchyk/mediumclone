@@ -9,7 +9,7 @@ export class PersistenceService {
       console.error('Error saving to local storage ', error);
     }
   }
-  get(key: string): any {
+  get(key: string): string {
     try {
       return JSON.parse(localStorage.getItem(key));
     } catch (error) {

@@ -29,6 +29,11 @@ export class AuthService {
 
   getCurrentUser(): Observable<ICurrentUser> {
     const url = environment.apiURL + '/user';
-    return this.http.get<IAuthResponse>(url).pipe(map(this.getUser));
+    console.log('GetCurrentUser:','start');
+    let resp=this.http.get<IAuthResponse>(url).pipe(map(this.getUser));
+    console.log('GetCurrentUser:', 'end', );
+    let a = resp.subscribe((art)=>art)
+    console.log(a)
+    return resp;
   }
 }

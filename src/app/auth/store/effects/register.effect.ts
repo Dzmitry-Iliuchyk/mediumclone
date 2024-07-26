@@ -22,7 +22,7 @@ export class RegisterEffect {
         return this.authService.register(request).pipe(
           map((currentUser: ICurrentUser) => {
             this.persistanceService.set(
-              LocalStorageEnum.accessToken,
+              LocalStorageEnum.accessToken.toString(),
               currentUser.token
             );
             return registerSuccessAction({ currentUser });
