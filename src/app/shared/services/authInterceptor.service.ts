@@ -16,7 +16,6 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('interceptor:', req.headers);
     const token: string = this.persist.get(
       LocalStorageEnum.accessToken.toString()
     );
@@ -25,7 +24,6 @@ export class AuthInterceptor implements HttpInterceptor {
       headers: req.headers.set('Authorization', `Token ${token}`),
     });
 
-    console.log(request);
     return next.handle(request);
   }
 }

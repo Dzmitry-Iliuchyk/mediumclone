@@ -21,7 +21,6 @@ export class ArticleEffect {
             return getArticleSuccessAction({ article });
           }),
           catchError((err) => {
-            console.log('error', err);
             return of(getArticleFailureAction());
           })
         );

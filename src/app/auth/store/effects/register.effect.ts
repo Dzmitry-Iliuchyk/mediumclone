@@ -41,7 +41,6 @@ export class RegisterEffect {
     this.action$.pipe(
       ofType(registerSuccessAction),
       tap(() => {
-        console.log('Success submit effect');
         this.router.navigateByUrl('/');
       })
     ),{dispatch: false}

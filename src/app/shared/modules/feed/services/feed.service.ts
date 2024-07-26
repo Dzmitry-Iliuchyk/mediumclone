@@ -9,7 +9,6 @@ export class FeedService {
   constructor(private http: HttpClient) {}
   getFeed(url: string): Observable<IFeedResponse> {
     const apiUrl: string = environment.apiURL + url;
-    console.log(apiUrl);
     return this.http.get<IFeedResponse>(apiUrl);
   }
 }

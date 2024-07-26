@@ -12,8 +12,6 @@ export class CreateArticleService {
 
   createArticle(articleInput: IArticleInput): Observable<IArticle> {
     const fullURL = environment.apiURL + '/articles';
-    console.log(fullURL);
-    console.log('ArticleInput', articleInput);
     return this.http
       .post(fullURL, articleInput)
       .pipe(map((response: ISaveArticleResponse) => response.article));

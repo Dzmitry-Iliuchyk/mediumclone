@@ -33,7 +33,6 @@ export class CreateArticleComponent implements OnInit {
     this.backEndErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
   onSubmit(articleInput: IArticleInput) {
-    console.log(articleInput);
     this.store.dispatch(createArticleAction({ articleInput }));
   }
 }

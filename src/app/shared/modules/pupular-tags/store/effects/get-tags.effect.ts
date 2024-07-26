@@ -16,7 +16,6 @@ export class TagEffect {
     this.action$.pipe(
       ofType(getTagsAction),
       switchMap(() => {
-        console.log('effects');
         return this.tagService.getTags().pipe(
           map((tags: ITagResponse) => {
             return getTagsSuccessAction({ tags });

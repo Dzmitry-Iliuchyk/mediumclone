@@ -51,8 +51,6 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
         if (isChanged&&!isFirstChange) {
           this.fetchFeed();
         }
-        console.log('isFirstChange', isFirstChange);
-        console.log('isChanged',isChanged)
   }
   ngOnInit(): void {
     this.initializeValues();
@@ -66,7 +64,6 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
       offset,
       ...parsedUrl.query,
     });
-    console.log('stringifiedParams', stringifiedParams);
 
     const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`;
     this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
@@ -75,7 +72,6 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   initializeListeners() {
     this.queryParamsSubscribtion = this.route.queryParams.subscribe(
       (params: Params) => {
-        console.log('params',params);
         this.currentPage = Number(params['page'] || '1');
         this.fetchFeed();
       }

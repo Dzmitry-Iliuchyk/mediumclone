@@ -17,23 +17,17 @@ export class AuthService {
 
   register(data: IRegisterRequest): Observable<ICurrentUser> {
     const url = environment.apiURL + '/users';
-    console.log(data);
     return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
   }
 
   login(data: ILoginRequest): Observable<ICurrentUser> {
     const url = environment.apiURL + '/users/login';
-    console.log(data);
     return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
   }
 
   getCurrentUser(): Observable<ICurrentUser> {
     const url = environment.apiURL + '/user';
-    console.log('GetCurrentUser:','start');
-    let resp=this.http.get<IAuthResponse>(url).pipe(map(this.getUser));
-    console.log('GetCurrentUser:', 'end', );
-    let a = resp.subscribe((art)=>art)
-    console.log(a)
-    return resp;
+    
+    return this.http.get<IAuthResponse>(url).pipe(map(this.getUser));
   }
 }

@@ -20,7 +20,6 @@ export class DeleteArticleEffect {
             return deleteArticleSuccessAction();
           }),
           catchError((err) => {
-            console.log('error', err);
             return of(deleteArticleFailureAction());
           })
         );

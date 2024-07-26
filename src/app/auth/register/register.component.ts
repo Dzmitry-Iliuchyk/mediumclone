@@ -29,7 +29,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
     this.initializeValues();
-    this.isSubmitting$.subscribe(console.log);
   }
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
     const request: IRegisterRequest = { user: this.form.value };
     this.store.dispatch(registerAction({ request }));
   }
