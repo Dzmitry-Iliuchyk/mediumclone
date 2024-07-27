@@ -1,0 +1,8 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-atricle-form
+  *ngIf="initialValues$ | async"
+  [initialValues]="initialValues$ | async"
+  [isSubmitting]="isSubmitting$ | async"
+  [errors]="backEndErrors$ | async"
+  (articleSubmit)="onSubmit($event)"
+></mc-atricle-form>

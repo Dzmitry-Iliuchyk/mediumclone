@@ -8,7 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CreateArticleEffect } from './store/effects/create-article.effects';
 import { StoreModule } from '@ngrx/store';
 import { RedusersNames } from 'src/helpers/redusersNames.enum';
-import { createArticleReducer } from './store/reduser';
+import { createArticleReducer } from './store/reducer';
 
 const routs = [
   {

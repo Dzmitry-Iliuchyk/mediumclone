@@ -14,6 +14,7 @@ import { LoginEffect } from './store/effects/login.effects';
 import { LoginComponent } from './login/login.component';
 import { GetCurrentUserEffect } from './store/effects/getCurrenrUser.effects';
 import { RedusersNames } from 'src/helpers/redusersNames.enum';
+import { updateCurrentUserEffect } from './store/effects/updateCurrentUser.effects';
 
 const route: Routes = [
   {
@@ -38,6 +39,7 @@ const route: Routes = [
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      updateCurrentUserEffect
     ]),
     BackendErrorsModule,
   ],

@@ -4,4 +4,6 @@ export enum RedusersNames {
   tags = 'tags',
   article = 'article',
   createArticle = 'createArticle',
+  editArticle = 'editArticle',
+  settings = 'settings',
 }

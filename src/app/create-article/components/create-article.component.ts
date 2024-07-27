@@ -12,7 +12,6 @@ import { createArticleAction } from '../store/actions/create-articles.actions';
 @Component({
   selector: 'mc-create-article',
   templateUrl: './create-article.component.html',
-  styleUrl: './create-article.component.scss',
 })
 export class CreateArticleComponent implements OnInit {
   initialValues: IArticleInput = {
