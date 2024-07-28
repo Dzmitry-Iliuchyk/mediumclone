@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { RedusersNames } from 'src/helpers/redusersNames.enum';
 import { createSettingsReducer } from './store/reducer';
+import { BackendErrorsModule } from '../shared/modules/backend-errors/backend-errors.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routs = [
   {
@@ -19,6 +21,9 @@ const routs = [
     CommonModule,
     RouterModule.forChild(routs),
     StoreModule.forFeature(RedusersNames.settings, createSettingsReducer),
+    BackendErrorsModule,
+    ReactiveFormsModule,
   ],
+  exports: [SettingsComponent],
 })
 export class SettingsModule {}

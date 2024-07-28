@@ -28,12 +28,16 @@ export class AuthService {
 
   getCurrentUser(): Observable<ICurrentUser> {
     const url = environment.apiURL + '/user';
-    
+
     return this.http.get<IAuthResponse>(url).pipe(map(this.getUser));
   }
 
-  updateCurrentUser(currentUserInput: ICurrentUserInput) : Observable<ICurrentUser>{
+  updateCurrentUser(
+    currentUserInput: ICurrentUserInput
+  ): Observable<ICurrentUser> {
     const url = environment.apiURL + '/user';
-    return this.http.put(url, currentUserInput).pipe(map((response: IAuthResponse)=> response.user))
+    return this.http
+      .put(url, { user: currentUserInput })
+      .pipe(map((response: IAuthResponse) => response.user));
   }
 }

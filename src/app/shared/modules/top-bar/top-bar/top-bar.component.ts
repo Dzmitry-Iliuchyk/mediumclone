@@ -23,8 +23,7 @@ export class TopBarComponent implements OnInit {
     this.isLoggedIn$ = this.store.pipe(select(IsLoggedInSelector));
     this.isAnonymous$ = this.store.pipe(select(IsAnonymousSelector));
     this.currentUser$ = this.store.pipe(
-      select(CurrentUserSelector),
-      tap(console.log)
+      select(CurrentUserSelector)
     );
   }
 }

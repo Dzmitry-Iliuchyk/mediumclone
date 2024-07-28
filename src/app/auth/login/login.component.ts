@@ -17,8 +17,8 @@ import {
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
-  isSubmitting$!: Observable<boolean>;
-  backendErrors$!: Observable<IBackEndErrors | null>;
+  isSubmitting$: Observable<boolean>;
+  backendErrors$: Observable<IBackEndErrors | null>;
 
   constructor(private store: Store, private formBuilder: FormBuilder) {}
 

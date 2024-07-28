@@ -49,7 +49,6 @@ export class EditArticleComponent implements OnInit {
     );
   }
   fetchData(): void {
-    console.log('fetchData()', this.slug);
     this.store.dispatch(getArticleAction({ slug: this.slug }));
   }
   onSubmit(articleInput: IArticleInput) {

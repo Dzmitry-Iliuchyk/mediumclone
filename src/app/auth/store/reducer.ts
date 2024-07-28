@@ -16,6 +16,7 @@ import {
   getCurrentUserSuccessAction,
 } from './actions/getCurrentUser.actions';
 import { updateCurrentUserSuccessAction } from './actions/updateCurrentUser.action';
+import { logOutAction } from './actions/sync.action';
 
 const initialState: IAuthState = {
   isSubmitting: false,
@@ -92,8 +93,18 @@ export const authReducer = createReducer(
     currentUser: null,
     isLoggedIn: false,
   })),
-  on(updateCurrentUserSuccessAction, (state , action): IAuthState=>({
-    ...state,
-    currentUser: action.currentUser
-  }))
+  on(
+    updateCurrentUserSuccessAction,
+    (state, action): IAuthState => ({
+      ...state,
+      currentUser: action.currentUser,
+    })
+  ),
+  on(
+    logOutAction,
+    (): IAuthState => ({
+      ...initialState,
+      isLoggedIn: false,
+    })
+  )
 );
