@@ -19,7 +19,7 @@ import { deleteArticleAction } from '../../store/actions/deleteArticle.actions';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit, OnDestroy {
-  slug: string;
+  slug: string = '';
   article: IArticle | null;
   articleSubscription: Subscription;
   isLoading$: Observable<Boolean>;

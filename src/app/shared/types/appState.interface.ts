@@ -6,6 +6,7 @@ import { ICreateArticleState } from 'src/app/create-article/store/types/ICreateA
 import { IEditArticleState } from 'src/app/edit-article/types/IEditArticle.interface';
 import { ISettingsState } from 'src/app/settings/types/ISettingsState.interface';
 import { IUserProfileState } from 'src/app/profile/types/IUserProfileState.interface';
+import { ICommentsState } from '../modules/comments/types/ICommentsState.interface';
 
 export interface IAppState {
   feed: IFeedState;
@@ -16,4 +17,5 @@ export interface IAppState {
   editArticle: IEditArticleState;
   settings: ISettingsState;
   userProfile: IUserProfileState;
+  comments: ICommentsState
 }

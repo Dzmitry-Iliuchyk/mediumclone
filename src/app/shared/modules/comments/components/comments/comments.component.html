@@ -1,0 +1,25 @@
+<hr />
+<div class="row">
+  <div class="col-xs-12 col-md-8 offset-md-2">
+    <form [formGroup]="form" class="card comment-form">
+      <div class="card-block">
+        <textarea
+          name="comment"
+          class="form-control"
+          rows="3"
+          placeholder="Write a message!"
+          formControlName="body"
+        ></textarea>
+      </div>
+      <div class="card-footer">
+        <img [src]="(currentUser$ | async).image" class="comment-author-img" />
+        <button (click)="submit()" type="submit" class="btn btn-sm btn-primary">
+          Post Comment
+        </button>
+      </div>
+    </form>
+    <ng-template ngFor let-comment [ngForOf]="(comments$ | async) "
+      ><mc-comment-card [comment]="comment"></mc-comment-card
+    ></ng-template>
+  </div>
+</div>
