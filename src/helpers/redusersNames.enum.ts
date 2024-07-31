@@ -6,4 +6,5 @@ export enum RedusersNames {
   createArticle = 'createArticle',
   editArticle = 'editArticle',
   settings = 'settings',
+  userProfile = "userProfile",
 }

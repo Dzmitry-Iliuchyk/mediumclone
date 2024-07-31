@@ -13,6 +13,7 @@ import { ErrorMessageModule } from '../error-message/error-message.module';
 import { TagListModule } from '../tag-list/tag-list.module';
 import { ArticleService } from './services/article.service';
 import { DeleteArticleEffect } from './store/effects/deleteArticle.effects';
+import { FollowModule } from "../follow/follow.module";
 const routes = [
   {
     path: 'articles/:slug',
@@ -31,6 +32,7 @@ const routes = [
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
-  ],
+    FollowModule
+],
 })
 export class ArticleModule {}

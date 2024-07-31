@@ -45,12 +45,13 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
-    const isChanged = changes['apiUrlProps'].currentValue !== changes['apiUrlProps'].previousValue;
+    const isChanged =
+      changes['apiUrlProps'].currentValue !==
+      changes['apiUrlProps'].previousValue;
     const isFirstChange = changes['apiUrlProps'].isFirstChange();
-        if (isChanged&&!isFirstChange) {
-          this.fetchFeed();
-        }
+    if (isChanged && !isFirstChange) {
+      this.fetchFeed();
+    }
   }
   ngOnInit(): void {
     this.initializeValues();

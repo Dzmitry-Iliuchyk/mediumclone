@@ -12,6 +12,14 @@
           </a>
           <span class="date">{{ article.createdAt }} </span>
         </div>
+        <div class="pull-xs-right">
+          <mc-user-follow
+            [isFollowed]="article.author.following"
+            [userName]="article.author.username"
+            *ngIf="!(isAuthor$ | async)"
+          >
+          </mc-user-follow>
+        </div>
         <span *ngIf="isAuthor$ | async">
           <a
             [routerLink]="['/articles', article.slug, 'edit']"
@@ -20,7 +28,12 @@
             <i class="ion-edit"></i>
             Edit article
           </a>
-          <button class="btn btn-outline-danger btn-sm" (click)="deleteArticle()">Delete article</button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="deleteArticle()"
+          >
+            Delete article
+          </button>
         </span>
       </div>
     </div>
@@ -30,12 +43,12 @@
     <mc-error-message *ngIf="error$ | async"></mc-error-message>
 
     <div class="row article-content" *ngIf="article">
-        <div class="col-xs-12">
-            <div>
-                <p>{{article.body}}</p>
-            </div>
-            <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+      <div class="col-xs-12">
+        <div>
+          <p>{{ article.body }}</p>
         </div>
+        <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+      </div>
     </div>
   </div>
 </div>

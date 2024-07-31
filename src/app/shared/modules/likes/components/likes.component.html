@@ -1,0 +1,7 @@
+<button
+  class="btn btn-sm btn-outline-light"
+  [ngClass]="{ 'btn-activated': isFavorited }"
+  (click)="onClick()"
+>
+  ♥ {{ favoritesCount }}
+</button>

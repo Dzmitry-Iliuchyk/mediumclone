@@ -19,14 +19,20 @@
             article.createdAt | date : "MMM dd, yyyy 'at' HH:mm "
           }}</span>
         </div>
-        <div class="pull-xs-right">{{ 'Add to favorites' | uppercase }}</div>
+        <div class="pull-xs-right">
+          <mc-likes
+            [liked]="article.favorited"
+            [articleSlug]="article.slug"
+            [likesCount]="article.favoritesCount"
+          ></mc-likes>
+        </div>
 
         <a [routerLink]="['/articles', article.slug]" class="preview-link">
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
         </a>
         <mc-tag-list
-          class="pull-xs-right "
+          class="pull-xs-right"
           [tags]="article.tagList"
           [tag-outline]="true"
         ></mc-tag-list>

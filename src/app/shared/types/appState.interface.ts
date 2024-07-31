@@ -5,6 +5,7 @@ import { IArticleState } from 'src/app/shared/modules/article/types/IArticleStat
 import { ICreateArticleState } from 'src/app/create-article/store/types/ICreateArticleState.interface';
 import { IEditArticleState } from 'src/app/edit-article/types/IEditArticle.interface';
 import { ISettingsState } from 'src/app/settings/types/ISettingsState.interface';
+import { IUserProfileState } from 'src/app/profile/types/IUserProfileState.interface';
 
 export interface IAppState {
   feed: IFeedState;
@@ -14,4 +15,5 @@ export interface IAppState {
   createArticle: ICreateArticleState;
   editArticle: IEditArticleState;
   settings: ISettingsState;
+  userProfile: IUserProfileState;
 }

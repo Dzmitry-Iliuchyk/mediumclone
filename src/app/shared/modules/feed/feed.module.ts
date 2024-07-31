@@ -12,6 +12,7 @@ import { LoadingModule } from '../loading-module/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { TagListModule } from '../tag-list/tag-list.module';
 import { RedusersNames } from 'src/helpers/redusersNames.enum';
+import { LikesModule } from "../likes/likes.module";
 
 @NgModule({
   declarations: [FeedComponent],
@@ -24,7 +25,8 @@ import { RedusersNames } from 'src/helpers/redusersNames.enum';
     LoadingModule,
     PaginationModule,
     TagListModule,
-  ],
+    LikesModule
+],
   exports: [FeedComponent],
   providers: [FeedService],
 })
